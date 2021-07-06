@@ -281,32 +281,28 @@ No need to prefix the symbol number specified in the CSV file with a leading zer
 
 ```csv
 33.873514,-78.000395,"Lighthouse - Old Baldy",25,"Bald Head Island","101 Light House Wynd","Bald Head Island","NC","28461","USA","910-457-7481"
-35.108947,-75.985997,"Lighthouse - Ocracoke",Custom 25,"Ocracoke Island","Lighthouse Road","Ocracoke","North Carolina","27960","USA","252-473-2111"
-35.250602,-75.528830,"Lighthouse - Cape Hatteras",Custom 25,"National Seashore","46375 Lighthouse Road","Buxton","North Carolina","27920","USA","252-995-4474"
-35.818557,-75.563273,"Lighthouse - Bodie Island",Custom 25,"Pea Island","8210 Bodie Island Lighthouse Road","Nags Head","North Carolina","27959","USA","252-441-5711"
-35.908130,-75.668190,"Lighthouse - Roanoke Marshes",Custom 25,"Downtown Manteo","104 Fernando Street","Manteo","North Carolina","27954","USA","252-475-1750"
-36.376646,-75.830629,"Lighthouse - Currituck Beach",Custom 25,"Currituck Beach","1160-1210 Corolla Village Rd","Corolla","North Carolina","27927","USA","252-453-4939"
+35.108947,-75.985997,"Lighthouse - Ocracoke",25,"Ocracoke Island","Lighthouse Road","Ocracoke","North Carolina","27960","USA","252-473-2111"
+35.250602,-75.528830,"Lighthouse - Cape Hatteras",25,"National Seashore","46375 Lighthouse Road","Buxton","North Carolina","27920","USA","252-995-4474"
+35.818557,-75.563273,"Lighthouse - Bodie Island",25,"Pea Island","8210 Bodie Island Lighthouse Road","Nags Head","North Carolina","27959","USA","252-441-5711"
+35.908130,-75.668190,"Lighthouse - Roanoke Marshes",25,"Downtown Manteo","104 Fernando Street","Manteo","North Carolina","27954","USA","252-475-1750"
+36.376646,-75.830629,"Lighthouse - Currituck Beach",25,"Currituck Beach","1160-1210 Corolla Village Rd","Corolla","North Carolina","27927","USA","252-453-4939"
 ```
 
 Running the **csvToGpx** program to convert the CSV **NC_Lighthouses.csv** file to the GPX file **NC_Lighthouses.gpx**. The **-garmin-basecamp** and **-custom-symbols-directory** command arguments were specified which triggered the **csvToGpx** program to copy any custom waypoint symbol icon images to the Garmin BaseCamp **CustomSymbols** directory.
 
 ```bash
-csvToGpx -csv-file files/NC_Lighthouses.csv -custom-symbols-directory CustomSymbols --garmin-basecamp
+csvToGpx -csv-file NC_Lighthouses.csv --garmin-basecamp -custom-symbols-directory ./
 ```
-
 <img style="border-style:solid;border-width: 2px;" src="./images/Example1_command.png"/>
 
 #### Manually importing the generated Garmin GPX file **NC_Lighthouses.gpx** into Gamin BaseCamp.
-
 <img style="border-style:solid;border-width: 2px;" src="./images/Example1_Import1.png"/>
 
 #### Locating and selecting the Garmin GPX file **NC_Lighthouses.gpx**.
-
 <img style="border-style:solid;border-width: 2px;" src="./images/Example1_Import2.png"/>
 
 #### The Garmin GPX file **NC_Lighthouses.gpx** has been imported into Garmin BaseCamp with the 6 Custom Waypoints.
 
 The filename **NC_Lighthouses** (minus the file extension .gpx) appears in the **My_Collection** folder along with the 6 custom waypoints.
-
 <img style="border-style:solid;border-width: 2px;" src="./images/Example1_Import3.png"/>
 
