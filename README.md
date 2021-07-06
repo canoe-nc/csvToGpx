@@ -140,18 +140,22 @@ Displays the command help.
 
 ### Garmin Waypoint Symbols
 
-Garmin provides over 150+ Waypoint Symbol Icons you can use for your Waypoints. All you need to do is to locate the Garmin Waypoint Symbol Icon and specify it's name in the **symbol** field in your CSV Waypoint field. 
+Garmin provides over 150+ Waypoint Symbol Icons you can use for your Waypoints. All you need to do is to locate the Garmin Waypoint Symbol Icon you would like to use and specify it's name in the **symbol** field in your CSV Waypoint field. 
 For example: **Campground**
+
+When you create a Waypoint inside Garmin BaseCamp you can select the Garmin Waypoint Symbol Icon. If you leave the mouse pointer over a Garmin Waypoint Symbol Icon for a few seconds the name will be displayed as "hover help". In this case the *tent* Garmin Waypoint Symbol Icon's name is **Campground**.
+
+<img style="border-style:solid;border-width: 2px;" src="./images/Garmin_Symbol.png"/>
 
 Waypoint defined in a CSV File using the **Campground** Waypoint Symbol Icon (4th comma separated field). 
 ```csv
-40.378513,-105.852245,"Timber Creek Campground",Campground,"Rock Mountains Campground","Trail Ridge Road","Grand Lake","Colorado","80447","USA","970-586-1206"
+40.378513,-105.852245,"Timber Creek Campground",Campground,"Rocky Mountains Campground","Trail Ridge Road","Grand Lake","Colorado","80447","USA","970-586-1206"
 ```
-Refer to the following online document [Garmin GPS Unit Waypoint Icons Table](https://freegeographytools.com/2008/garmin-gps-unit-waypoint-icons-table) for a table of Garmin Symbol names you can use. *Note: Not all devices have all Garmin Symbol names built it.*
+Refer to the following online document [Garmin GPS Unit Waypoint Icons Table](https://freegeographytools.com/2008/garmin-gps-unit-waypoint-icons-table) for a table of Garmin Symbol names you can use. A lot easier than locating a Garmin Symbol icon inside Garmin BaseCamp. *Note: Not all Garmin GPS devices have all Garmin Symbol names built it.*
 
 ### Using Custom Waypoint Symbols
 
-If you cannot find an appropriate waypoint symbol icon for your custom waypoints you can provide and use a custom waypoint symbol icon. There are some websites that have custom waypoint symbol icons that you can download for free.
+If you cannot find an appropriate Garmin Waypoint Symbol Icon for your custom waypoints you can provide and use a custom waypoint symbol icon. There are some websites that have custom waypoint symbol icons that you can download for free.
 [POI Factory](http://www.poi-factory.com) is one site. Note: I have used some custom waypoint symbol icons from sites such as [POI Factory](http://www.poi-factory.com) and I had to modify the icon images in order for
 them to show up in Garmin BaseCamp and on my Garmin GPS device. 
 The symbol image icon file must be a bitmap image and must meet specific criteria in order for the custom symbol image to appear with your custom waypoints in Garmin BaseCamp and on your Garmin GPS Device.
@@ -209,7 +213,7 @@ The waypoint is using the custom waypoint symbol image "**031-National Park.bmp*
 ![031-National Park.bmp](./images/031-National_Park.png "National Park Custom Symbol# 031")
 
 
-The CSV record looked like this below.  I specified the custom waypoint symbol number **031** in the 4th comma separated field.
+The CSV custom waypoint record looked like this below.  I specified the custom waypoint symbol number **031** in the 4th comma separated field.
 
 ```csv
 35.251530,-75.528327,"Cape Hatteras Visitor Center",031,"Visitor Center","46375 Lighthouse Rd","Buxton","North Carolina","27920","USA","252-473-2111"
@@ -271,8 +275,8 @@ All 6 custom waypoints are using a custom waypoint symbol icon named **025-Light
 
 <img style="border-style:solid;border-width: 2px;" src="./images/Example1_Custom_Waypoint_Symbol.png"/>
 
-The input CSV file. It follows the default csv-fields format. It is using the custom waypoint symbol icon image **25**. 
-No need to prefix the symbol in the CSV file with leading zeros.
+Here is the input CSV file below. It follows the default csv-fields format. It is using the custom waypoint symbol icon image **25**. 
+No need to prefix the symbol in the CSV file a leading zeros to make it 3 digits.
 
 ```csv
 33.873514,-78.000395,"Lighthouse - Old Baldy",25,"Bald Head Island","101 Light House Wynd","Bald Head Island","NC","28461","USA","910-457-7481"
@@ -291,13 +295,13 @@ Running the **csvToGpx** program to convert the CSV **NC_Lighthouses.csv** file 
 
 <img style="border-style:solid;border-width: 2px;" src="./images/Example1_Import1.png"/>
 
-#### Locating and selecting Garmin GPX file **NC_Lighthouses.gpx**.
+#### Locating and selecting the Garmin GPX file **NC_Lighthouses.gpx**.
 
 <img style="border-style:solid;border-width: 2px;" src="./images/Example1_Import2.png"/>
 
 #### The Garmin GPX file **NC_Lighthouses.gpx** has been imported into Garmin BaseCamp with the 6 Custom Waypoints.
 
-The filename **NC_Lighthouses.gpx** appears in the **My_Collection** along with the 6 custom waypoints.
+The filename **NC_Lighthouses** (minus the file extension .gpx) appears in the **My_Collection** along with the 6 custom waypoints.
 
 <img style="border-style:solid;border-width: 2px;" src="./images/Example1_Import3.png"/>
 
