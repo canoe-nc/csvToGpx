@@ -6,8 +6,10 @@ The **csvToGpx** program converts CSV files containing custom GPS waypoints to G
 The **csvToGPX** is very flexible regarding the format of the input CSV files. You can specify the format of the CSV records (field order and number of fields).
 
 As an option, the **csvToGpx** program can write the generated custom waypoints GPX files and any custom waypoint symbol image files you may have to your Garmin GPS device.
+Refer to the [Custom Waypoint Symbols](#-custom-waypoint-symbols) section below in this document for more details on using custom waypoint symbols.
 
-If you are using Garmin BaseCamp you will need to manually import the generated Garmin GPX files inside Garmin BaseCamp as the **csvToGpx** program cannot automatically import the generated custom waypoints into Garmin BaseCamp. However the **csvToGpx** program can automatically import any custom waypoint symbol image files you may have. Refer to the [-garmin-basecamp](#-garmin-basecamp) command argument in the Syntax section below in this document.
+If you are using Garmin BaseCamp you will need to manually import the generated Garmin GPX files inside Garmin BaseCamp as the **csvToGpx** program cannot automatically import the generated custom waypoints into Garmin BaseCamp.
+However the **csvToGpx** program can automatically import any custom waypoint symbol image files you may have. Refer to the [-garmin-basecamp](#-garmin-basecamp) command argument in the Syntax section below in this document.
 
 The **csvToGpx** program has been tested on Linux, macOS, and Windows. Garmin BaseCamp does not run on Linux therefore the ability to automatically import custom waypoint symbols images files is not applicable when running on Linux.
 
@@ -96,43 +98,15 @@ You must also specify the [-custom-symbols-directory](#-custom-symbols-directory
 Specifies a waypoint symbol name or symbol number (for a custom symbol) to be configured for any CSV file waypoint that does not specify a symbol.
 Optional. If not specified the value for [-default-symbol](#-default-symbol-name000-055) is "Waypoint" which displays as a dot.
 
-If you want to use a Garmin Symbol you specify the symbol name (e.g. "Park", "Circle with X", "Gas Station").
+If you want to use a Garmin Symbol you specify the symbol name (e.g. "Campground", "Circle with X", "Gas Station", "Park", "Restaurant").
 Refer to the following online document [Garmin GPS Unit Waypoint Icons Table](https://freegeographytools.com/2008/garmin-gps-unit-waypoint-icons-table) for a table of Garmin Symbol names you can use.  *Note: Not all devices have all Garmin Symbol names built it.*
 
-If you want to use your own Custom symbol you specify the symbol number (000-055) and you must also provide the symbol image file.  Refer to the [-custom-symbols-directory](#-custom-symbols-directory-directory) command line argument. The symbol image file must be a bitmap image and must meet specific criteria in order for the custom symbol image to appear with your custom waypoints in Garmin BaseCamp and on your Garmin GPS Device. Refer go the Garmin online document [Custom Waypoint Symbol Creation](https://support.garmin.com/en-US/?faq=VTS8XTdjCW5Tx3HyfJ3eQ6) for details on custom symbols and how to create custom symbol image files.
+If you want to use your own Custom symbol you specify the symbol number (000-055) and you must also provide the symbol image file. 
 
 #### -custom-symbols-directory "\<directory\>"
 
 Specifies a directory where your custom waypoint symbol image files reside.
-If you specify this command argument along with the [-garmin-basecamp](#-garmin-basecamp) command argument then the custom waypoint symbol image files will be copied to the appropriate Garmin BaseCamp **CustomSymbols** directory when running on macOS or Windows. If the [-garmin-device](#-garmin-device) command argument is specified then the custom waypoint symbol image files will also be copied to your Garmin GPS device.
-
-Custom symbols are stored in Garmin BaseCamp and on Garmin GPS devices with different filenames.
-In Garmin BaseCamp the custom symbol image files need to have filenames with 3 digit numbers and must be bitmap image files with a file extension of ".bmp".
-For example: "000.bmp", "001.bmp", "002.bmp", "003.bmp", etc. etc.  
-   
-On your Garmin GPS device those same custom symbol image filenames must be named "Custom 0.bmp", "Custom 1.bmp", "Custom 2.bmp", "Custom 3.bmp", etc. etc.
-
-The **csvToGpx** program will copy your custom waypoint symbols to Garmin BaseCamp and to your Garmin GPS device for you automatically as an option.
-You do not have to provide 2 copies of every custom symbol image file ("000.bmp" and "Custom 0.bmp"). You just need to provide the filename named "000.bmp" 
-
-To make the **csvToGpx** program copy your custom waypoints to Garmin BaseCamp, specify the [-garmin-basecamp](#-garmin-basecamp) command argument and also specify the [-custom-symbols-directory](#-custom-symbols-directory-directory) command argument with the directory where your custom waypoint symbols are stored. The **csvToGpx** program will copy the files ( "000.bmp", "001.bmp", "002.bmp", "003.bmp", etc. etc.) to the appropriate Garmin BaseCamp directories on macOS and Windows so they will be visible and available for use in Garmin BaseCamp.
-
-To make the **csvToGpx** program copy your custom waypoints to your Garmin GPS device then specify the [-custom-symbols-directory](#-custom-symbols-directory-directory) command argument and the [-garmin-device](#-garmin-device) argument with the path to your Garmin GPS device.  The **csvToGpx** program will copy the files ("000.bmp", "001.bmp", "002.bmp", "003.bmp", etc. etc.) to the appropriate directory on your Garmin GPS Device (or Micro SD Card) as ("Custom 0.bmp", "Custom 1.bmp", "Custom 2.bmp", "Custom 3.bmp", etc. etc.) so they will be visible and available for use on your Garmin GPS device. 
-        
-##### Custom waypoints additional description        
-
-You can add a "description" after the 3 digit number in a custom symbol image filename. 
-The **csvToGpx** program will automatically include that "description" in the "Comment" section (1st line) of any waypoint that uses that custom symbol.
-That "description" will show up in Garmin BaseCamp and your Garmin GPS device in the "Comment" section when you view details on a waypoint using that custom symbol.
-The **csvToGpx** program will not include that "description" in the custom symbol image filename when copying the custom symbol image file to Garmin BaseCamp or your Garmin GPS Device.
-The "description" needs to be prefix with a dash/minus sign (-) and must immediately follow the 3 digit number in the custom symbol image filename.
-I myself use that "description" to give a custom waypoint symbol some additional details. 
-For instance I have a custom waypoint symbol image for a National Park. It is named "**031-National Park.bmp**".  The text "**National Park**" will be added to the Comment section of any waypoint using the symbol **031**. 
-
-##### Example:
-![031-National Park.bmp](./images/031-National_Park.png "National Park Custom Symbol# 031")
-
-The **csvToGpx** program also adds some additional information in the comment section of a custom waypoints. Refer to the [Waypoint Comment](#waypoint-comment) section below in this document for more details..        
+If you specify this command argument along with the [-garmin-basecamp](#-garmin-basecamp) command argument then the custom waypoint symbol image files will be copied to the appropriate Garmin BaseCamp **CustomSymbols** directory when running on macOS or Windows. If the [-garmin-device](#-garmin-device) command argument is specified then the custom waypoint symbol image files will also be copied to your Garmin GPS device. Refer to the [Custom Waypoint Symbols](#-custom-waypoint-symbols) section below in this document for more details on using custom waypoint symbols.
 
 #### -default-country "\<country name\>"
 
@@ -162,13 +136,59 @@ If desired you can ignore the warnings and suppress the warning messages by spec
 
 Displays the command help.
 
+## Custom Waypoint Symbols
+
+### Garmin Waypoint Symbols
+
+Garmin provides over 150+ Waypoint Symbol Icons you can use for your Waypoints. All you need to do is to locate the Garmin Waypoint Symbol Icon and specify it's name in the **symbol** field in your CSV Waypoint field. 
+For example: **Campground**
+
+Waypoint defined in a CSV File using the **Campground** Waypoint Symbol Icon (4th comma separated field). 
+```csv
+40.378513,-105.852245,"Timber Creek Campground",Campground,"Rock Mountains Campground","Trail Ridge Road","Grand Lake","Colorado","80447","USA","970-586-1206"
+```
+Refer to the following online document [Garmin GPS Unit Waypoint Icons Table](https://freegeographytools.com/2008/garmin-gps-unit-waypoint-icons-table) for a table of Garmin Symbol names you can use. *Note: Not all devices have all Garmin Symbol names built it.*
+
+### Using Custom Waypoint Symbols
+
+If you cannot find an appropriate waypoint symbol icon for your custom waypoints you can provide and use a custom waypoint symbol icon. There are some websites that have custom waypoint symbol icons that you can download for free.
+[POI Factory](http://www.poi-factory.com) is one site. Note: I have used some custom waypoint symbol icons from sites such as [POI Factory](http://www.poi-factory.com) and I had to modify the icon images in order for
+them to show up in Garmin BaseCamp and on my Garmin GPS device. 
+The symbol image icon file must be a bitmap image and must meet specific criteria in order for the custom symbol image to appear with your custom waypoints in Garmin BaseCamp and on your Garmin GPS Device.
+Refer to the Garmin online document [Custom Waypoint Symbol Creation](https://support.garmin.com/en-US/?faq=VTS8XTdjCW5Tx3HyfJ3eQ6) for details on custom waypoint symbols and how to create custom symbol icon image files.
+
+Custom symbol icon image files are stored in Garmin BaseCamp and on Garmin GPS devices with different filenames.
+In Garmin BaseCamp the custom symbol icon image files need to have filenames with 3 digit numbers and must be bitmap image files with a file extension of ".bmp".
+For example: "**000.bmp**", "**001.bmp**", "**002.bmp**", "**003.bmp**", etc. etc.  
+   
+On your Garmin GPS device those same custom symbol icon image filenames must be named "**Custom 0.bmp**", "**Custom 1.bmp**", "**Custom 2.bmp**", "**Custom 3.bmp**", etc. etc.
+
+The **csvToGpx** program will copy your custom waypoint symbols to Garmin BaseCamp and to your Garmin GPS device for you automatically as an option.
+You do not have to provide 2 copies of every custom symbol image file ("**000.bmp**" and "**Custom 0.bmp**"). You just need to provide the filename named "**000.bmp**" 
+
+To make the **csvToGpx** program copy your custom waypoints to Garmin BaseCamp, specify the [-garmin-basecamp](#-garmin-basecamp) command argument and also specify the [-custom-symbols-directory](#-custom-symbols-directory-directory) command argument with the directory where your custom waypoint symbols are stored. The **csvToGpx** program will copy the files ("**000.bmp**", "**001.bmp**", "**002.bmp**", "**003.bmp**", etc. etc.) to the appropriate Garmin BaseCamp directories on macOS and Windows so they will be visible and available for use in Garmin BaseCamp.
+
+To make the **csvToGpx** program copy your custom waypoints to your Garmin GPS device then specify the [-custom-symbols-directory](#-custom-symbols-directory-directory) command argument and the [-garmin-device](#-garmin-device) argument with the path to your Garmin GPS device.  The **csvToGpx** program will copy the files ("000.bmp", "001.bmp", "002.bmp", "003.bmp", etc. etc.) to the appropriate directory on your Garmin GPS Device (or Micro SD Card) as ("**Custom 0.bmp**", "**Custom 1.bmp**", "**Custom 2.bmp**", etc. etc.) so they will be visible and available for use on your Garmin GPS device. 
+        
+### Adding a description to Custom Waypoints using Custom Symbols
+
+You can add a "description" after the 3 digit number in a custom symbol icon image filename. 
+The **csvToGpx** program will automatically include that "description" in the "Comment" section (1st line) of any custom waypoint that uses that custom symbol.
+That "description" will show up in Garmin BaseCamp and your Garmin GPS device in the "Comment" section when you view details on a custom waypoint using that custom symbol.
+The **csvToGpx** program will not include that "description" in the custom symbol icon image filename when copying the custom symbol icon image file to Garmin BaseCamp or your Garmin GPS Device.
+The "description" needs to be prefix with a dash/minus sign (-) and must immediately follow the 3 digit number in the custom symbol icon image filename.
+I myself use that "description" to give a custom waypoint symbol some additional details. 
+For instance I have a custom waypoint symbol image for a National Park. It is named "**031-National Park.bmp**".  The text "**National Park**" will be added to the Comment section of any waypoint using the symbol **031**. 
+
+The **csvToGpx** program also adds some additional information in the comment section of a custom waypoints. Refer to the [Waypoint Comment](#waypoint-comment) section below in this document for more details..        
+
 ## Waypoint Comment
 
 The **csvToGpx** program generates a detailed "Comment" section for your custom waypoints which can be viewed in Garmin BaseCamp and from your Garmin GPS device. 
 
 The "Comment" will contain the following information (if available) on separate lines for a custom waypoint:
 
-* The custom "description" retrieved from a custom symbol image filename if the waypoint is using a custom symbol and the custom symbol image file contained a "description". Refer to the [-custom-symbols-directory](#-custom-symbols-directory-directory) command argument above in this document.
+* The custom "description" retrieved from a custom symbol image filename if the waypoint is using a custom symbol and the custom symbol image file contained a "description". Refer to the [Adding a description to Custom Waypoints using Custom Symbols](#adding-a-description-to-custom-waypoints-using-custom-symbols) section above in this document.
 
 * The description value from the CSV file for the custom waypoint if provided.
 
@@ -184,14 +204,18 @@ The "Comment" will contain the following information (if available) on separate 
 
 #### Example of a custom waypoint created by the csvToGpxX program and displayed in Garmin BaseCamp showing the Comment field.
 
-The waypoint is using the custom waypoint symbol image "**031-National Park.bmp**"
-The CSV record looked like this:
+The waypoint is using the custom waypoint symbol image "**031-National Park.bmp**".
+
+![031-National Park.bmp](./images/031-National_Park.png "National Park Custom Symbol# 031")
+
+
+The CSV record looked like this below.  I specified the custom waypoint symbol number **031** in the 4th comma separated field.
 
 ```csv
 35.251530,-75.528327,"Cape Hatteras Visitor Center",031,"Visitor Center","46375 Lighthouse Rd","Buxton","North Carolina","27920","USA","252-473-2111"
 ```
 
-The GPX generated by the **csvToGpx** program and loaded into Garmin BaseCamp and written to the Garmin GPS looked like this below. Note: the `&#10;` values in the `<cmt>` section are "line breaks" added by the **csvToGpx** program which will separate the values on different lines when displayed in Garmin BaseCamp and Garmin Devices.
+The GPX generated by the **csvToGpx** program and loaded into Garmin BaseCamp and written to the Garmin GPS looked like this below. Note: the **`&#10;`** values in the Comment **`<cmt>`** section which are "line breaks" added by the **csvToGpx** program that will separate the fields on different lines when displayed in Garmin BaseCamp and Garmin Devices.
 
 **Garmin GPX**
 ```xml
